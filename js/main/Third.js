@@ -5,7 +5,7 @@ import {
 
 } from 'react-native';
 
-class User extends Component {
+export default class Third extends Component {
 
     render() {
         return (
@@ -14,15 +14,15 @@ class User extends Component {
                     onPress={
                         () => {
                             console.log('uuuu');
-                            this.props.navigation.navigate('Details', {aa: 'User过来的'});
+                            this.props.navigation.goBack();
                         }
                     }
-                    title="下一步"
+                    title="上一步"
                 />
             </View>
         );
     }
 }
 
-export default User;
+
 

@@ -1,30 +1,25 @@
-import { Button, Text, View } from 'react-native';
 import React from 'react';
+import Home from './Home';
+import {withNavigation} from 'react-navigation';
+import {Button, ScrollView} from 'react-native';
 
 class HomeScreen extends React.Component {
     render() {
+        const {navigation} = this.props;
+        let param = {
+            fartherProps: this.props.navigation,
+        };
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
-                <Button
-                    title="Go to Settings"
-                    onPress={() => this.props.navigation.navigate('Settings')}
-                />
-            </View>
+            <Button style={{width: 200}} title="下一步"
+                    onPress={() => {
+                        console.log('ss');
+                        // this.props.param.fartherProps.navigate('Detail', {aa: 'Home过来的'});
+                        navigation.navigate('Third', {aa: 'Home过来的'});
+                    }}
+                    color="#841584"/>
+            // <Home param={param}/>
         );
     }
 }
 
-class SettingsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-                <Button
-                    title="Go to Home"
-                    onPress={() => this.props.navigation.navigate('Home')}
-                />
-            </View>
-        );
-    }
-}
+export default withNavigation(HomeScreen);
