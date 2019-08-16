@@ -1,7 +1,8 @@
 import React from 'react';
 import Home from './Home';
 import {withNavigation} from 'react-navigation';
-import {Button, ScrollView} from 'react-native';
+import {Button, ScrollView, View} from 'react-native';
+import {WebView} from 'react-native-webview';
 
 class HomeScreen extends React.Component {
     render() {
@@ -10,14 +11,11 @@ class HomeScreen extends React.Component {
             fartherProps: this.props.navigation,
         };
         return (
-            <Button style={{width: 200}} title="下一步"
-                    onPress={() => {
-                        console.log('ss');
-                        // this.props.param.fartherProps.navigate('Detail', {aa: 'Home过来的'});
-                        navigation.navigate('Third', {aa: 'Home过来的'});
-                    }}
-                    color="#841584"/>
-            // <Home param={param}/>
+
+            <WebView
+                style={{marginTop: 20}}
+                source={{uri: 'https://www.baidu.com/'}}
+            />
         );
     }
 }
