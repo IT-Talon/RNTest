@@ -4,22 +4,13 @@ import {
     Button,
 
 } from 'react-native';
+import {WebView} from 'react-native-webview';
 
 class User extends Component {
 
     render() {
         return (
-            <View>
-                <Button
-                    onPress={
-                        () => {
-                            console.log('uuuu');
-                            this.props.navigation.navigate('Details', {aa: 'User过来的'});
-                        }
-                    }
-                    title="下一步"
-                />
-            </View>
+            <WebView source={{ uri: 'https://github.com/react-native-community/react-native-webview/blob/master/docs/Getting-Started.md' }} />
         );
     }
 }
